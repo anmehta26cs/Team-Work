@@ -1,3 +1,3 @@
 # Team-Work
 
-![loginscreen](login-screen.png)
+![loginscreen](login-screen.png | width=200)
