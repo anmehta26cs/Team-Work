@@ -11,11 +11,11 @@ import FirebaseFirestore
 
 class AppViewModel: ObservableObject {
     let auth  = Auth.auth()
-    let db = Firestore.firestore()
+    
     
     @Published var signedIn = false
     @Published var signedUp = false
-//    @Published var fullName = ""
+    @Published var firstName = ""
     
     var isSignedIn: Bool {
         return auth.currentUser != nil
@@ -30,22 +30,39 @@ class AppViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
-//            self?.db.collection("users").addDocument(data: [result. : Any])
             DispatchQueue.main.async {
+                
                 self?.signedIn = true
+                
             }
         }
     }
     
-    func signUp(email: String, password: String) {
+    func signUp(email: String, password: String, firstName: String, lastName: String) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else {
+                print("Error with create user: \(String(describing: error))")
                 return
             }
+            
             // Success
-            DispatchQueue.main.async {
-                self?.signedUp = true
+            
+            if let result = result {
+                let db = Firestore.firestore()
+                let uid = result.user.uid
+                db.collection("users").document(uid).setData(["firstName" : firstName,
+                                                              "lastName" : lastName]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    }
+                    
+                }
+                DispatchQueue.main.async {
+                    self?.firstName = firstName
+                    self?.signedUp = true
+                }
             }
+            
             
         }
     }
@@ -137,6 +154,8 @@ struct LoginView: View {
 struct SignUpView: View {
     @State var username: String = ""
     @State var password: String = ""
+    @State var firstName: String = ""
+    @State var lastName: String = ""
     @Binding var isLogInPresented : Bool
     @EnvironmentObject var appViewModel: AppViewModel
     
@@ -163,6 +182,22 @@ struct SignUpView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
+                TextField("First Name", text: $firstName)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .padding()
+                    .background(Color("TextInputBackgroundColor"))
+                    .cornerRadius(10)
+                    .shadow(color: Color("BlueColor").opacity(0.2), radius: 10, x: 10, y: 10)
+                    .padding(.horizontal)
+                TextField("Last Name", text: $lastName)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .padding()
+                    .background(Color("TextInputBackgroundColor"))
+                    .cornerRadius(10)
+                    .shadow(color: Color("BlueColor").opacity(0.2), radius: 10, x: 10, y: 10)
+                    .padding(.horizontal)
                 TextField("Email Address", text: $username)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
@@ -185,7 +220,7 @@ struct SignUpView: View {
                         return
                     }
                     
-                    appViewModel.signUp(email: username, password: password)
+                    appViewModel.signUp(email: username, password: password, firstName: firstName, lastName: lastName)
                 }) {
                     ButtonText(text: "Sign Up")
                 }

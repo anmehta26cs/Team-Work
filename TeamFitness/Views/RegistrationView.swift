@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
+    
     var body: some View {
         ZStack {
             Color("BlueColor")
                 .edgesIgnoringSafeArea(.all)
-            LoginBigBoldText(text: "Register")
+            VStack {
+                LoginBigBoldText(text: "Hello, \(appViewModel.firstName)")
+                Button(action: {
+                    appViewModel.signedUp.toggle()
+                    appViewModel.signedIn.toggle()
+                }) {
+                    ButtonText(text: "Continue")
+                }
+            }
+            
         }
     }
 }

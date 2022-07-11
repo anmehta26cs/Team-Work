@@ -8,6 +8,6 @@ target 'TeamFitness' do
   # Pods for TeamFitness
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  Pod 'Firebase/Firestore'
+  pod 'Firebase/Firestore'
 
 end

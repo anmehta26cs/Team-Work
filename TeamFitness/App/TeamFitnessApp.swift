@@ -28,9 +28,9 @@ struct TeamFitnessApp: App {
     var body: some Scene {
         WindowGroup {
             let appViewModel: AppViewModel = AppViewModel()
-//            ContentView()
-//                .environmentObject(appViewModel)
-            RegistrationView()
+            ContentView()
+                .environmentObject(appViewModel)
+//            RegistrationView()
         }
     }
 }
