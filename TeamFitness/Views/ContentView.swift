@@ -15,9 +15,9 @@ struct ContentView: View {
             if appViewModel.signedIn {
                 AuthView()
             } else if appViewModel.signedUp {
-                RegistrationView()
+                RegistrationView().transition(.slide)
             } else {
-                UnauthView()
+                LoginView()
             }
         }
         .onAppear{

@@ -9,8 +9,8 @@ import Foundation
 
 struct User: Identifiable {
     
-    let id: String
-    let firstName: String
-    let lastName: String
+    var id: String
+    var firstName: String
+    var lastName: String
     
 }

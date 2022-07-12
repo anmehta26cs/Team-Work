@@ -15,7 +15,7 @@ struct RegistrationView: View {
             Color("BlueColor")
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                LoginBigBoldText(text: "Hello, \(appViewModel.firstName)")
+                LoginBigBoldText(text: "Hello")
                 Button(action: {
                     appViewModel.signedUp.toggle()
                     appViewModel.signedIn.toggle()

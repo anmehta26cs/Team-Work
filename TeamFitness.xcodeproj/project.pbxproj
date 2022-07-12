@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22C92446287C78120096E228 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C92445287C78120096E228 /* GoogleService-Info.plist */; };
 		22C92448287C8D540096E228 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C92447287C8D540096E228 /* User.swift */; };
+		546D6FC5287D0AC50046648A /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D6FC4287D0AC50046648A /* AppViewModel.swift */; };
+		546D6FC7287D0D7C0046648A /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D6FC6287D0D7C0046648A /* ImageViews.swift */; };
+		546D6FC9287D0E460046648A /* TextFieldViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D6FC8287D0E460046648A /* TextFieldViews.swift */; };
 		5488A855287B7FE700CD6764 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488A854287B7FE700CD6764 /* Constants.swift */; };
 		5488A857287B80E500CD6764 /* RoundViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488A856287B80E500CD6764 /* RoundViews.swift */; };
 		5488A859287B8D6B00CD6764 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488A858287B8D6B00CD6764 /* AuthView.swift */; };
@@ -27,9 +29,11 @@
 
 /* Begin PBXFileReference section */
 		22B9027A287C71BC0027A845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		22C92445287C78120096E228 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22C92447287C8D540096E228 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		47244EC7C6F4521E75363B10 /* Pods-TeamFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamFitness.release.xcconfig"; path = "Target Support Files/Pods-TeamFitness/Pods-TeamFitness.release.xcconfig"; sourceTree = "<group>"; };
+		546D6FC4287D0AC50046648A /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		546D6FC6287D0D7C0046648A /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
+		546D6FC8287D0E460046648A /* TextFieldViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViews.swift; sourceTree = "<group>"; };
 		5488A854287B7FE700CD6764 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5488A856287B80E500CD6764 /* RoundViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViews.swift; sourceTree = "<group>"; };
 		5488A858287B8D6B00CD6764 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		546D6FBF287D09B90046648A /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				54E241F3287B1FE0005E22A0 /* HomeView.swift */,
+				5488A85C287BCAAE00CD6764 /* ProfileView.swift */,
+				5488A85A287BC8CF00CD6764 /* GroupView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		546D6FC1287D0A0A0046648A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				54E241F5287B2624005E22A0 /* TextViews.swift */,
+				5488A856287B80E500CD6764 /* RoundViews.swift */,
+				546D6FC6287D0D7C0046648A /* ImageViews.swift */,
+				546D6FC8287D0E460046648A /* TextFieldViews.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		54E241D6287B1F83005E22A0 = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +114,6 @@
 		54E241E1287B1F83005E22A0 /* TeamFitness */ = {
 			isa = PBXGroup;
 			children = (
-				22C92445287C78120096E228 /* GoogleService-Info.plist */,
 				54E241F2287B1FB6005E22A0 /* Models */,
 				54E241F1287B1FAE005E22A0 /* App */,
 				54E241F0287B1F94005E22A0 /* Views */,
@@ -111,14 +135,11 @@
 		54E241F0287B1F94005E22A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				546D6FBF287D09B90046648A /* Tabs */,
+				546D6FC1287D0A0A0046648A /* Components */,
 				54E241E4287B1F83005E22A0 /* ContentView.swift */,
-				54E241F3287B1FE0005E22A0 /* HomeView.swift */,
-				54E241F5287B2624005E22A0 /* TextViews.swift */,
 				54E241F7287B2703005E22A0 /* LoginView.swift */,
-				5488A856287B80E500CD6764 /* RoundViews.swift */,
 				5488A858287B8D6B00CD6764 /* AuthView.swift */,
-				5488A85A287BC8CF00CD6764 /* GroupView.swift */,
-				5488A85C287BCAAE00CD6764 /* ProfileView.swift */,
 				5488A85E287BD82500CD6764 /* RegistrationView.swift */,
 			);
 			path = Views;
@@ -137,6 +158,7 @@
 			children = (
 				5488A854287B7FE700CD6764 /* Constants.swift */,
 				22C92447287C8D540096E228 /* User.swift */,
+				546D6FC4287D0AC50046648A /* AppViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,7 +238,6 @@
 			files = (
 				54E241EA287B1F85005E22A0 /* Preview Assets.xcassets in Resources */,
 				54E241E7287B1F85005E22A0 /* Assets.xcassets in Resources */,
-				22C92446287C78120096E228 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,8 +292,11 @@
 			files = (
 				54E241F4287B1FE0005E22A0 /* HomeView.swift in Sources */,
 				54E241F6287B2624005E22A0 /* TextViews.swift in Sources */,
+				546D6FC5287D0AC50046648A /* AppViewModel.swift in Sources */,
 				5488A85D287BCAAE00CD6764 /* ProfileView.swift in Sources */,
 				5488A85B287BC8CF00CD6764 /* GroupView.swift in Sources */,
+				546D6FC7287D0D7C0046648A /* ImageViews.swift in Sources */,
+				546D6FC9287D0E460046648A /* TextFieldViews.swift in Sources */,
 				54E241E5287B1F83005E22A0 /* ContentView.swift in Sources */,
 				54E241F8287B2703005E22A0 /* LoginView.swift in Sources */,
 				5488A85F287BD82500CD6764 /* RegistrationView.swift in Sources */,
